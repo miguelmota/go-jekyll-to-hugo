@@ -1,3 +1,3 @@
-module github.com/miguelmota/jekyll-to-hugo
+module github.com/miguelmota/go-jekyll-to-hugo
 
 go 1.12

@@ -1,7 +1,6 @@
-package main
+package migration
 
 import (
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -10,13 +9,18 @@ import (
 	"strings"
 )
 
-func main() {
-	var src, dst string
-	var dry bool
-	flag.StringVar(&src, "src", "", "source")
-	flag.StringVar(&dst, "dst", "", "destination")
-	flag.BoolVar(&dry, "dry", false, "dry run")
-	flag.Parse()
+// Options ...
+type Options struct {
+	Source      string
+	Destination string
+	Dry         bool
+}
+
+// Migrate ...
+func Migrate(options *Options) {
+	src := options.Source
+	dst := options.Destination
+	dry := options.Dry
 
 	if src == "" {
 		src = "."
