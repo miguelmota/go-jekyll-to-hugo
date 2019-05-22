@@ -7,3 +7,5 @@ description: A guide in to the world of Functional Reactive Programming with RxJ
 ---
 
 [RxJS](https://github.com/ReactiveX/rxjs) is a JavaScript implementation of the *Reactive Extensions (Rx)*, a model originally developed at ...
+
+[View Demo »]({{ page.url }}/demo)
