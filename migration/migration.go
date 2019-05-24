@@ -32,7 +32,7 @@ func Migrate(options *Options) {
 		src = src + "/"
 	}
 	if !strings.HasSuffix(dst, "/") {
-		src = dst + "/"
+		dst = dst + "/"
 	}
 
 	if _, err := os.Stat(src); os.IsNotExist(err) {
@@ -77,7 +77,7 @@ func Migrate(options *Options) {
 		content = strings.ReplaceAll(content, "{{ page.url }}", "{{ .Site.BaseURL }}")
 
 		out := dst + newFilename
-		fmt.Printf("%s -> %s", in, out)
+		fmt.Printf("%s -> %s\n", in, out)
 
 		if !dry {
 			if err := ioutil.WriteFile(out, []byte(content), 0644); err != nil {
