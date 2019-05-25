@@ -65,9 +65,10 @@ func Migrate(options *Options) {
 		re = regexp.MustCompile(`(\d{4}-\d{2}-\d{2})-(.*)`)
 		newFilename := re.ReplaceAllString(filename, "$2")
 
-		re = regexp.MustCompile(`---\n([\s\S]*)---\n([\s\S]*)`)
+		re = regexp.MustCompile(`---\n([\s\S]*?)---\n([\s\S]*)`)
 		matches := re.FindSubmatch(data)
 		header := string(matches[1])
+		header = strings.ReplaceAll(header, "category:", "type:")
 		body := string(matches[2])
 		dateline := fmt.Sprintf("date: %s\n", date)
 		draftline := "draft: false\n"
