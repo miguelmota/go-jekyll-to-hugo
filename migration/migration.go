@@ -74,7 +74,7 @@ func Migrate(options *Options) {
 		header = fmt.Sprintf("%s%s%s", header, dateline, draftline)
 
 		content := fmt.Sprintf("---\n%s---\n%s", header, body)
-		content = strings.ReplaceAll(content, "{{ page.url }}", "{{ .Site.BaseURL }}")
+		content = strings.ReplaceAll(content, "{{ page.url }}/", "")
 
 		out := dst + newFilename
 		fmt.Printf("%s -> %s\n", in, out)
